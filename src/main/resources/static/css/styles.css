@@ -1,6 +1,80 @@
 body {
     font-family: sans-serif;
+    margin: 0px;
 }
+
+
+.navigation {
+  list-style: none;
+  margin: 0;
+
+  background: deepskyblue;
+
+  /* This is what creates the flexbox */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.navigation h1, a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+  margin: auto 0px;
+}
+
+.navigation h1 {
+    color: black;
+}
+
+
+.navigation li {
+
+    margin: auto 0px;
+
+}
+
+
+.navigation a:hover {
+  background: darken(deepskyblue, 2%);
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .navigation a, h1 {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .navigation h1 {
+    color: black;
+  }
+
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+
 
 .cheeseType {
     text-transform: uppercase;
@@ -28,7 +102,7 @@ body {
   }
 
   80% {
-    transform: translate(-50px, 0);
+    transform: translate(-25px, 0);
   }
 }
 

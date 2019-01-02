@@ -9,9 +9,12 @@
 </head>
 <body>
 <nav th:fragment="nav">
-    <a href="/cheese">List</a>
-    <a href="/cheese/add">Add</a>
-    <a href="/cheese/remove">Remove</a>
+    <ul class="navigation">
+        <li><h1 th:text="${title}">Title</h1></li>
+        <li><a href="/cheese">List</a></li>
+        <li><a href="/cheese/add">Add</a></li>
+        <li><a href="/cheese/remove">Remove</a></li>
+    </ul>
 </nav>
 </body>
 </html>
