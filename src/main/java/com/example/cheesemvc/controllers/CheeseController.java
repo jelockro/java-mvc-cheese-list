@@ -59,6 +59,7 @@ public class CheeseController {
     public String processRemoveCheeseFrom(@RequestParam ArrayList<String> cheeseCheckbox){
         for(String item : cheeseCheckbox) {
             cheeseObjects.remove(item);
+            cheeses.remove(item);
         }
 
         // Redirect to /cheese
