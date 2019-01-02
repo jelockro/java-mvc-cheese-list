@@ -1,0 +1,48 @@
+body {
+    font-family: sans-serif;
+}
+
+.cheeseType {
+    text-transform: uppercase;
+    animation:
+        pulse 5s ease infinite alternate,
+        nudge 5s linear infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        color: purple;
+    }
+    100% {
+        color: yellow;
+    }
+}
+
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(50px, 0);
+  }
+
+  80% {
+    transform: translate(-50px, 0);
+  }
+}
+
+
+.container {
+    display: flex;
+    flex-description: row;
+}
+
+.descriptionLabel {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cheeseDescription {
+    padding-left: 15px;
+}
