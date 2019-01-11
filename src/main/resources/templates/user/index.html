@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
+
+<nav th:replace="fragments :: nav"></nav>
+
+<form method="post">
+    <label for="cheeseName">Please Enter a Cheese Type: </label> <br />
+    <input id="cheeseName" type="text" name="cheeseName" /> <br />
+    <label for="cheeseDescription">Please Enter a Description: </label><br />
+    <textarea rows="4" columns="100" maxlength="400" id="cheeseDescription" type="text" name="cheeseDescription" />
+    <input type="submit" value="Add Cheese" />
+</form>
+
 
 </body>
 </html>

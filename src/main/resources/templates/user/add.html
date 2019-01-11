@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
+
+<nav th:replace="fragments :: nav"></nav>
+
+<form method="post">
+    <label for="username">Please Enter a username: </label> <br />
+    <input id="username" type="text" name="username" /> <br />
+    <label for="password">Please enter a password: </label><br />
+    <input id="password" type="password" name="password" /> <br />
+    <label for="verifyPassword">Please verify your password: </label><br />
+    <input id="verifyPassword" type="password" name="verifyPassword" /> <br />
+    <label for="email">Please enter an email: </label><br />
+    <input id="email" type="email" name="email" /> <br />
+    <input type="submit" value="Add Cheese" />
+</form>
 
 </body>
 </html>
