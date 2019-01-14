@@ -10,11 +10,11 @@
     <li th:each="cheese : ${cheeses}">
         <div>
             <h3>Cheese Type:</h3>
-            <h2 class="cheeseType" th:text="${cheese.key}">Cheese Type</h2>
+            <h2 class="cheeseType" th:text="${cheese.name}">Cheese Type</h2>
         </div>
         <div class="container">
             <p class="descriptionLabel">Description:</p>
-            <p class="cheeseDescription" th:text="${cheese.value}">Key</p><br/>
+            <p class="cheeseDescription" th:text="${cheese.description}">Key</p><br/>
         </div>
 
 

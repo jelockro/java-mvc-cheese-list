@@ -15,18 +15,14 @@ import java.util.*;
 @Controller
 @RequestMapping("cheese")
 public class CheeseController {
-    static HashMap<String, Cheese> cheeseObjects = new HashMap<>();
-    static HashMap<String, String> cheeses = new HashMap<>();
+    static ArrayList<Cheese> cheeses= new ArrayList<>();
+
 
 
     // request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        /* Display content of cheeseObjects using Iterator*/
-        for (Cheese c:cheeseObjects.values()){
-            cheeses.put(c.getName(), c.getDescription());
-        }
         model.addAttribute("cheeses", cheeses);
         model.addAttribute("title", "My Cheeses");
         return "cheese/index";
@@ -40,10 +36,8 @@ public class CheeseController {
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDescription){
-        String cheeseObjectName = cheeseName;
-        Cheese cheeseobjectName = new Cheese(cheeseName, cheeseDescription);
-        cheeseObjects.put(cheeseName, cheeseobjectName);
-
+        Cheese newCheese = new Cheese(cheeseName, cheeseDescription);
+        cheeses.add(newCheese);
         // Redirect to /cheese
         return "redirect:";
 
@@ -58,7 +52,6 @@ public class CheeseController {
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveCheeseFrom(@RequestParam ArrayList<String> cheeseCheckbox){
         for(String item : cheeseCheckbox) {
-            cheeseObjects.remove(item);
             cheeses.remove(item);
         }
 
