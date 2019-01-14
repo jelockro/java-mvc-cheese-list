@@ -15,6 +15,7 @@
         <div class="container">
             <p class="descriptionLabel">Description:</p>
             <p class="cheeseDescription" th:text="${cheese.description}">Key</p><br/>
+            <a th:href="@{'/cheese/edit/' + ${cheese.cheeseID}}">edit</a>
         </div>
 
 
