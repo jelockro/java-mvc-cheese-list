@@ -4,6 +4,7 @@ import com.example.cheesemvc.models.Cheese;
 import com.example.cheesemvc.models.CheeseData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,8 +33,7 @@ public class CheeseController {
         return "cheese/add";
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDescription){
-        Cheese newCheese = new Cheese(cheeseName, cheeseDescription);
+    public String processAddCheeseForm(@ModelAttribute Cheese newCheese){
         CheeseData.add(newCheese);
         // Redirect to /cheese
         return "redirect:";
