@@ -5,22 +5,40 @@
 
 <nav th:replace="fragments :: nav"></nav>
 
-<p th:unless="${cheeses} and ${cheeses.size()}">No cheese :(</p>
-<ul>
-    <li th:each="cheese : ${cheeses}">
-        <div>
-            <h3>Cheese Type:</h3>
-            <h2 class="cheeseType" th:text="${cheese.name}">Cheese Type</h2>
-        </div>
-        <div class="container">
-            <p class="descriptionLabel">Description:</p>
-            <p class="cheeseDescription" th:text="${cheese.description}">Key</p><br/>
-            <a th:href="@{'/cheese/edit/' + ${cheese.cheeseID}}">edit</a>
-        </div>
 
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1 class="text-center pb-4 pt-3">
+          <span class="text-warning">
+          <i class="fas fa-clipboard"></i> Cheese </span> List
+        </h1>
+        <div class="card">
+            <div class="card-head text-center mt-3">
+                <h4>Your customized list of cheeses. Yum!</h4>
+            </div>
+            <div class="card-body">
+                <h4 th:unless="${cheeses} and ${cheeses.size()}">No cheese :(</h4>
+                <table th:each="cheese : ${cheeses}" class="table table-striped">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Cheese Type:</th>
+                        <th>Description:</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${cheese.name}">Cheese Name</td>
+                        <td th:text="${cheese.description}">Cheese Description</td>
+                        <td><a  th:href="@{'/cheese/edit/' + ${cheese.cheeseID}}" class="btn btn-warning btn-sm"><i class="fa fa-arrow-circle-right"> Edit</i></a></td>
+                    </tr>
+                    </tbody>
+                </table>
 
-    </li>
-</ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

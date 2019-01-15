@@ -4,9 +4,10 @@ import com.example.cheesemvc.models.Cheese;
 import com.example.cheesemvc.models.CheeseData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 
 
 @Controller
@@ -25,15 +26,22 @@ public class CheeseController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddCheeseForm(Model model) {
-
+        model.addAttribute(new Cheese());
         model.addAttribute("title", "Add Cheese");
         return "cheese/add";
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@ModelAttribute Cheese newCheese){
-        CheeseData.add(newCheese);
-        // Redirect to /cheese
-        return "redirect:";
+    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese, Errors errors, Model model){
+        if (errors.hasErrors()) {
+            System.out.println(errors.getErrorCount());
+            model.addAttribute("title", "Add Cheese");
+            return "cheese/add";
+        } else {
+            CheeseData.add(newCheese);
+            // Redirect to /cheese
+            return "redirect:";
+        }
+
 
     }
 
