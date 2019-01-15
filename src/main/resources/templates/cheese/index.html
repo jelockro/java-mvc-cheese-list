@@ -17,7 +17,8 @@
                 <h4>Your customized list of cheeses. Yum!</h4>
             </div>
             <div class="card-body">
-                <h4 th:unless="${cheeses} and ${cheeses.size()}">No cheese :(</h4>
+                <h4 th:unless="${cheeses} and ${cheeses.size()}"><img th:src="@{/img/cheese.svg}" alt="cheeselogo" style="padding: 0 0 7px 0;" width="30" height="30"/>
+                    No Cheese :(</h4>
                 <table th:each="cheese : ${cheeses}" class="table table-striped">
                     <thead class="thead-inverse">
                     <tr>

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title th:text="${title}">My Cheeses</title>
+    <title th:text="${title}">CheeseMVC</title>
 
     <!--<link rel="stylesheet" th:href="@{/css/styles.css}" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
@@ -18,7 +18,8 @@
     <div class="container">
         <a class="navbar-brand" style="color: white;">
             <!--<img th:href="@{/cheese.svg}" alt="" />-->
-            <i class="fas fa-utensils"></i> CHEESE MVC</a>
+            <img th:src="@{/img/cheese.svg}" alt="cheeselogo" style="padding: 0 0 7px 0;" width="30" height="30"/>
+            CHEESE MVC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -2,6 +2,7 @@ package com.example.cheesemvc.controllers;
 
 import com.example.cheesemvc.models.Cheese;
 import com.example.cheesemvc.models.CheeseData;
+import com.example.cheesemvc.models.CheeseType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,7 +21,8 @@ public class CheeseController {
     public String index(Model model) {
 
         model.addAttribute("cheeses", CheeseData.getAll());
-        model.addAttribute("title", "My Cheeses");
+        model.addAttribute("title", "CheeseMVC");
+
         return "cheese/index";
     }
 
@@ -28,6 +30,7 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model) {
         model.addAttribute(new Cheese());
         model.addAttribute("title", "Add Cheese");
+        model.addAttribute("cheeseTypes", CheeseType.values());
         return "cheese/add";
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
