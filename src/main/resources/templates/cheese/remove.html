@@ -5,30 +5,34 @@
 
 <nav th:replace="fragments :: nav"></nav>
 
-<div class="row">
-    <div class="col-md-6 mx-auto">
-        <h1 class="text-center pb-4 pt-3">
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="text-center pb-4 pt-3" style="color: white;" >
           <span class="text-danger">
           <i class="fas fa-eraser"></i> Remove </span> Cheese
-        </h1>
-        <div class="card mx-auto">
-            <div class="card-header">
-                Select Cheeses to Remove
-            </div>
-            <div class="card-body">
-                <p th:unless="${cheeses} and ${cheeses.size()}">No cheese :(</p>
-                <form method="post"  th:object="${cheese}">
-                    <div class="form-group">
-                        <div th:each="cheese : ${cheeses}" class="checkbox">
-                            <input type="checkbox" id="cheeseCheckbox" th:text="'  ' + ${cheese.name}" name="cheeseIDs" th:value="${cheese.cheeseID}">  Cheese Type</input><br />
+            </h1>
+            <div class="card mx-auto">
+                <div class="card-header">
+                    Select Cheeses to Remove
+                </div>
+                <div class="card-body">
+                    <p th:unless="${cheeses} and ${cheeses.size()}">No cheese :(</p>
+                    <form method="post"  th:object="${cheese}">
+                        <div class="form-group">
+                            <div th:each="cheese : ${cheeses}" class="checkbox">
+                                <input type="checkbox" id="cheeseCheckbox" th:text="'  ' + ${cheese.name}" name="cheeseIDs" th:value="${cheese.cheeseID}">  Cheese Type</input><br />
 
+                            </div>
                         </div>
-                    </div>
-                    <input type="submit" class="btn btn-warning btn-block" value="Remove Cheese" />
-                </form>
+                        <input type="submit" class="btn btn-warning btn-block" value="Remove Cheese" />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
