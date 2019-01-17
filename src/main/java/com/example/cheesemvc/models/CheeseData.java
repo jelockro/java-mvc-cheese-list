@@ -29,5 +29,10 @@ public class CheeseData {
         }
         return theCheese;
     }
+    public static void edit(Cheese editCheese) {
+        remove(editCheese.getCheeseID());
+        add(editCheese);
+
+    }
 
 }
