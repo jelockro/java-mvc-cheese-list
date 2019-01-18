@@ -4,18 +4,34 @@
 <body>
 
 <nav th:replace="fragments :: nav"></nav>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="text-center pb-4 pt-3" style="color: white;">
+          <span class="text-warning">
+          <i class="fas fa-plus-circle"></i> Add </span> User
+            </h1>
+            <div class="card mx-auto">
+                <div class="card-header">Add User</div>
+                <div class="card-body">
+                    <form method="post" th:object="${user}" class="form-group">
+                        <label for="username">Please Enter a username: </label> <br />
+                        <input class="form-control" id="username" type="text" th:field="*{username}" /> <br />
+                        <label for="password">Please enter a password: </label><br />
+                        <input class="form-control" id="password" type="password" th:field="*{password}" /> <br />
+                        <label for="verifyPassword">Please verify your password: </label><br />
+                        <input class="form-control" id="verifyPassword" type="password" name="verify" /> <br />
+                        <label for="email">Please enter an email: </label><br />
+                        <input class="form-control" id="email" type="email" th:field="*{email}"/> <br />
+                        <input type="submit" class="btn btn-warning btn-block" value="Add User" />
+                    </form>
 
-<form method="post">
-    <label for="username">Please Enter a username: </label> <br />
-    <input id="username" type="text" name="username" /> <br />
-    <label for="password">Please enter a password: </label><br />
-    <input id="password" type="password" name="password" /> <br />
-    <label for="verifyPassword">Please verify your password: </label><br />
-    <input id="verifyPassword" type="password" name="verifyPassword" /> <br />
-    <label for="email">Please enter an email: </label><br />
-    <input id="email" type="email" name="email" /> <br />
-    <input type="submit" value="Add Cheese" />
-</form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

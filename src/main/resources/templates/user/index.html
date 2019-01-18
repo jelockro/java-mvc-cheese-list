@@ -5,14 +5,7 @@
 
 <nav th:replace="fragments :: nav"></nav>
 
-<form method="post">
-    <label for="cheeseName">Please Enter a Cheese Type: </label> <br />
-    <input id="cheeseName" type="text" name="cheeseName" /> <br />
-    <label for="cheeseDescription">Please Enter a Description: </label><br />
-    <textarea rows="4" columns="100" maxlength="400" id="cheeseDescription" type="text" name="cheeseDescription" />
-    <input type="submit" value="Add Cheese" />
-</form>
-
+<h1 th:value="'Hello ' + ${user.name}">Hello ${user.name} </h1>
 
 </body>
 </html>
